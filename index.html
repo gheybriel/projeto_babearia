@@ -1709,7 +1709,10 @@
             .right-group {
                 display: flex;
                 align-items: center;
-                gap: 1rem;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
             }
             .nav-cta {
                 padding: 0.6rem 1rem;
@@ -1875,7 +1878,7 @@
                 <li><a href="#team">Barbers</a></li>
                 <li><a href="#testimonials">Avaliações</a></li>
             </ul>
-            <a class="nav-cta" href="#booking">Agendar Agora</a>
+            <a class="nav-cta" href="#booking-form">Agendar Agora</a>
         </div>
 
         <div class="nav-hamburger" id="hamburger">
@@ -1891,7 +1894,7 @@
         <a href="#team" onclick="closeMobileNav()">Barbers</a>
         <a href="#testimonials" onclick="closeMobileNav()">Avaliações</a>
         <a href="#location" onclick="closeMobileNav()">Localização</a>
-        <a href="#booking" onclick="closeMobileNav()">Agendar Agora</a>
+        <a href="#booking-form" onclick="closeMobileNav()">Agendar Agora</a>
     </div>
 
     <!-- Hero Section -->
@@ -1912,7 +1915,7 @@
                 intenção.<br><br>Bem-vindo à experiência BASE.
             </p>
             <div class="hero-actions">
-                <a class="btn-primary" href="#booking">
+                <a class="btn-primary" href="#booking-form">
                     <span>Reserve sua Cadeira</span>
                     <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
                 </a>
@@ -2294,7 +2297,7 @@
                 </div>
                 <h2 class="section-title reveal reveal-delay-1">RESERVE SUA <span
                         class="italic accent-gold">Cadeira</span></h2>
-                <form class="booking-form reveal reveal-delay-2" onsubmit="event.preventDefault();">
+                <form class="booking-form reveal reveal-delay-2" id="booking-form" onsubmit="event.preventDefault();">
                     <div class="form-row">
                         <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
                         <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000">
