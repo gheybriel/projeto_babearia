@@ -114,7 +114,7 @@
         .nav-group { display: flex; align-items: center; gap: 2.5rem; }
         .right-group { margin-left: auto; }
         
-        .nav-logo.center-logo { position: absolute; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; }
+        .nav-logo { display: flex; align-items: center; }
         .nav-logo img { width: 70px; height: auto; object-fit: contain; }
         
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
@@ -344,7 +344,6 @@
         }
         @media (max-width: 768px) {
             .nav-links, .nav-cta, .right-group { display: none; }
-            .nav-logo.center-logo { position: static; transform: none; }
             .nav-hamburger { display: flex; }
             .nav { padding: 1.2rem 1.5rem; }
             .nav.scrolled { padding: 1rem 1.5rem; }
@@ -385,8 +384,13 @@
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
-        <!-- Grupo Esquerdo -->
-        <div class="nav-group">
+        <!-- Logo Esquerda -->
+        <a class="nav-logo" href="#">
+            <img src="assets/images/Group_6.png" alt="Logo">
+        </a>
+        
+        <!-- Menu Direita -->
+        <div class="nav-group right-group">
             <ul class="nav-links">
                 <li><a href="#about">História</a></li>
                 <li><a href="#services">Serviços</a></li>
@@ -394,15 +398,6 @@
                 <li><a href="#team">Barbeiros</a></li>
                 <li><a href="#testimonials">Avaliações</a></li>
             </ul>
-        </div>
-        
-        <!-- Logo Central -->
-        <a class="nav-logo center-logo" href="#">
-            <img src="assets/images/image.svg" alt="Logo">
-        </a>
-        
-        <!-- Grupo Direito -->
-        <div class="nav-group right-group">
             <a class="nav-cta" href="#booking">Agendar Agora</a>
         </div>
         
