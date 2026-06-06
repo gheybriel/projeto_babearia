@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
     
     <!-- Iconify (para ícones super leves e fáceis de manter) -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -147,6 +147,7 @@
         .hero-title span:nth-child(2) { animation: fadeUp 1s var(--ease-out-expo) 1.15s forwards; }
         .hero-title span:nth-child(3) { animation: fadeUp 1s var(--ease-out-expo) 1.3s forwards; }
         .hero-title .title-stroke { -webkit-text-stroke: 1px var(--gray); color: transparent; }
+        .hero-title .title-logo-style { font-family: 'Permanent Marker', cursive; color: var(--red); font-size: 0.75em; letter-spacing: 0.05em; -webkit-text-stroke: 0; display: inline-block; padding-top: 0.5rem; }
         
         .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--gray-light); max-width: 420px; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 1.5s forwards; }
         .hero-actions { display: flex; align-items: center; gap: 2rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 1.7s forwards; }
@@ -420,16 +421,16 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-tag">
-                <span class="section-tag-line"></span>
-                <span class="section-tag-text">Est. 2018 -- Grooming Premium</span>
+                <span class="section-tag-line red"></span>
+                <span class="section-tag-text red">Barbearia conceito, desde 2017</span>
             </div>
             <h1 class="hero-title">
-                <span>ONDE ARTE</span>
-                <span>ENCONTRA</span>
-                <span class="title-stroke">&amp; TRADIÇÃO</span>
+                <span>SUA MELHOR</span>
+                <span>VERSÃO</span>
+                <span class="title-logo-style">COMEÇA AQUI</span>
             </h1>
-            <p class="hero-desc">
-                Entre em um mundo onde cada corte conta uma história. Nossos mestres combinam técnicas consagradas pelo tempo com arte contemporânea para criar o seu visual.
+            <p class="hero-desc" style="margin-bottom: 2rem;">
+                A Base Barber Shop transforma estilo em identidade. Trabalhamos visagismo, simetria e textura para criar um visual que realmente representa quem você é.<br><br>Aqui, cada corte tem propósito. Cada detalhe tem intenção.<br><br>Bem-vindo à experiência Base.
             </p>
             <div class="hero-actions">
                 <a class="btn-primary" href="#booking">
@@ -439,7 +440,9 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="barbershop-landing-51.aura.build/assets/photo-1621605815971-fbc98d6650_2ef33d15070f.avif" alt="Barbeiro">
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0;">
+                <source src="assets/images/@olucasfreestyle_já_atualizou_a_régua,_e_você_.mp4" type="video/mp4">
+            </video>
         </div>
     </section>
 
