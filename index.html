@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLADE & CO. | Barbearia Premium</title>
+    <title>Barbearia Premium</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,10 +110,12 @@
         /* ========== NAVIGATION ========== */
         .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s var(--ease-out-quart); }
         .nav.scrolled { padding: 1rem 3rem; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .nav-logo { display: flex; align-items: center; gap: 1rem; }
-        .nav-logo img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.2); }
-        .nav-logo-text { font-family: var(--display); font-size: 1.8rem; letter-spacing: 0.15em; color: var(--white); }
-        .nav-logo-text .accent { color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 1.4rem; }
+        
+        .nav-group { display: flex; align-items: center; gap: 2.5rem; }
+        .right-group { margin-left: auto; }
+        
+        .nav-logo.center-logo { position: absolute; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; }
+        .nav-logo img { width: 70px; height: auto; object-fit: contain; }
         
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
         .nav-links a { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); transition: color 0.3s ease; position: relative; }
@@ -341,7 +343,8 @@
             .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
         }
         @media (max-width: 768px) {
-            .nav-links, .nav-cta { display: none; }
+            .nav-links, .nav-cta, .right-group { display: none; }
+            .nav-logo.center-logo { position: static; transform: none; }
             .nav-hamburger { display: flex; }
             .nav { padding: 1.2rem 1.5rem; }
             .nav.scrolled { padding: 1rem 1.5rem; }
@@ -382,18 +385,29 @@
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
-        <a class="nav-logo" href="#">
-            <img src="assets/images/logo_base.jpg" alt="Logo">
-            <span class="nav-logo-text">BLADE <span class="accent">&amp;</span> CO.</span>
+        <!-- Grupo Esquerdo -->
+        <div class="nav-group">
+            <ul class="nav-links">
+                <li><a href="#about">História</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+            </ul>
+        </div>
+        
+        <!-- Logo Central -->
+        <a class="nav-logo center-logo" href="#">
+            <img src="assets/images/image.svg" alt="Logo">
         </a>
-        <ul class="nav-links">
-            <li><a href="#about">História</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#gallery">Galeria</a></li>
-            <li><a href="#team">Barbeiros</a></li>
-            <li><a href="#testimonials">Avaliações</a></li>
-        </ul>
-        <a class="nav-cta" href="#booking">Agendar Agora</a>
+        
+        <!-- Grupo Direito -->
+        <div class="nav-group right-group">
+            <ul class="nav-links">
+                <li><a href="#team">Barbeiros</a></li>
+                <li><a href="#testimonials">Avaliações</a></li>
+            </ul>
+            <a class="nav-cta" href="#booking">Agendar Agora</a>
+        </div>
+        
         <div class="nav-hamburger" id="hamburger">
             <span></span><span></span><span></span>
         </div>
@@ -712,8 +726,7 @@
         <div class="footer-top">
             <div>
                 <div class="footer-brand">
-                    <img src="assets/images/logo_base.jpg" alt="Logo">
-                    <div class="footer-brand-name">BLADE <span class="accent">&amp;</span> CO.</div>
+                    <img src="assets/images/image.svg" alt="Logo" style="width: 80px; height: auto; border-radius: 0;">
                 </div>
                 <p class="footer-brand-desc">Onde a tradição encontra a arte moderna. Experiências premium de grooming para cavalheiros desde 2018.</p>
                 <div class="footer-socials">
@@ -747,7 +760,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 BLADE & CO. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Todos os direitos reservados.</p>
             <div class="footer-bottom-links">
                 <a href="#">Política de Privacidade</a>
                 <a href="#">Termos de Uso</a>
