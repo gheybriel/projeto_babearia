@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbearia Premium</title>
+    <link rel="icon" href="assets/images/logo_base.jpg" type="image/jpeg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,7 +224,7 @@
             color: var(--gold);
         }
 
-        .section-title .accent-red {
+        .section-title .accent-gold {
             color: var(--red);
         }
 
@@ -1814,6 +1815,9 @@
                 gap: 1rem;
                 text-align: center;
             }
+            .nav-location {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -1836,11 +1840,15 @@
 
         <!-- Menu Direita -->
         <div class="nav-group right-group">
+            <a href="#location" class="nav-location" style="display: flex; align-items: center; gap: 0.5rem; color: var(--gold); font-size: 0.85rem; margin-right: 1.5rem; font-family: 'Bebas Neue', cursive; letter-spacing: 0.1em; white-space: nowrap; text-decoration: none; border: 1px solid rgba(212, 175, 55, 0.3); padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'" onmouseout="this.style.background='transparent'">
+                <iconify-icon icon="solar:map-point-bold" style="font-size: 1.2rem;"></iconify-icon>
+                <span>Localização</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">História</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#team">Barbeiros</a></li>
+                <li><a href="#team">Barbers</a></li>
                 <li><a href="#testimonials">Avaliações</a></li>
             </ul>
             <a class="nav-cta" href="#booking">Agendar Agora</a>
@@ -1856,7 +1864,7 @@
         <a href="#about" onclick="closeMobileNav()">História</a>
         <a href="#services" onclick="closeMobileNav()">Serviços</a>
         <a href="#gallery" onclick="closeMobileNav()">Galeria</a>
-        <a href="#team" onclick="closeMobileNav()">Barbeiros</a>
+        <a href="#team" onclick="closeMobileNav()">Barbers</a>
         <a href="#testimonials" onclick="closeMobileNav()">Avaliações</a>
         <a href="#booking" onclick="closeMobileNav()">Agendar Agora</a>
     </div>
@@ -1865,8 +1873,8 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-tag">
-                <span class="section-tag-line red"></span>
-                <span class="section-tag-text red">Barbearia conceito, desde 2017</span>
+                <span class="section-tag-line"></span>
+                <span class="section-tag-text">Barbearia conceito, desde 2017</span>
             </div>
             <h1 class="hero-title">
                 <span>SUA MELHOR</span>
@@ -1952,11 +1960,11 @@
         </div>
         <div class="about-content">
             <div class="section-tag reveal">
-                <span class="section-tag-line red"></span>
-                <span class="section-tag-text red">Nossa História</span>
+                <span class="section-tag-line"></span>
+                <span class="section-tag-text">Nossa História</span>
             </div>
             <h2 class="section-title reveal reveal-delay-1">MAIS QUE UMA<br>BARBEARIA.<br>UM <span
-                    class="italic accent-red">Legado.</span></h2>
+                    class="italic accent-gold">Legado.</span></h2>
             <p class="about-text reveal reveal-delay-2">
                 Nascida no Belenzinho, na zona leste de São Paulo, a BASE Barber Shop redefiniu o padrão de estética
                 masculina desde a sua fundação em 2017. Mais do que executar cortes impecáveis ou alinhar a sua barba,
@@ -1988,11 +1996,11 @@
         <div class="services-header">
             <div>
                 <div class="section-tag reveal">
-                    <span class="section-tag-line red"></span>
-                    <span class="section-tag-text red">O Que Oferecemos</span>
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">O Que Oferecemos</span>
                 </div>
                 <h2 class="section-title reveal reveal-delay-1">NOSSOS SERVIÇOS<br><span
-                        class="italic accent-red">Premium</span></h2>
+                        class="italic accent-gold">Premium</span></h2>
             </div>
             <div class="services-header-right reveal reveal-delay-2">
                 <p>Cada serviço é elaborado com precisão e cuidado, utilizando apenas os melhores produtos e técnicas
@@ -2055,11 +2063,11 @@
     <section class="gallery" id="gallery">
         <div class="gallery-header">
             <div class="section-tag reveal" style="justify-content: center;">
-                <span class="section-tag-line red"></span>
-                <span class="section-tag-text red">Nosso Trabalho</span>
-                <span class="section-tag-line red"></span>
+                <span class="section-tag-line"></span>
+                <span class="section-tag-text">Nosso Trabalho</span>
+                <span class="section-tag-line"></span>
             </div>
-            <h2 class="section-title reveal reveal-delay-1">A <span class="italic accent-red">Arte</span> EM DETALHES
+            <h2 class="section-title reveal reveal-delay-1">A <span class="italic accent-gold">Arte</span> EM DETALHES
             </h2>
         </div>
         <div class="gallery-grid">
@@ -2089,11 +2097,11 @@
         <div class="team-header">
             <div>
                 <div class="section-tag reveal">
-                    <span class="section-tag-line red"></span>
-                    <span class="section-tag-text red">A Equipe</span>
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">A Equipe</span>
                 </div>
                 <h2 class="section-title reveal reveal-delay-1">CONHEÇA NOSSOS<br><span
-                        class="italic accent-red">Barbers</span></h2>
+                        class="italic accent-gold">Barbers</span></h2>
             </div>
         </div>
         <div class="team-grid">
@@ -2154,7 +2162,7 @@
                 <span class="section-tag-line"></span>
             </div>
             <h2 class="section-title reveal reveal-delay-1">O QUE DIZEM<br>NOSSOS <span
-                    class="italic accent-red">Clientes</span>
+                    class="italic accent-gold">Clientes</span>
             </h2>
         </div>
         <div class="testimonial-slider">
@@ -2201,7 +2209,7 @@
                     <span class="section-tag-text">Onde Estamos</span>
                     <span class="section-tag-line"></span>
                 </div>
-                <h2 class="section-title reveal reveal-delay-1">NOSSA <span class="italic accent-red">Localização</span>
+                <h2 class="section-title reveal reveal-delay-1">NOSSA <span class="italic accent-gold">Localização</span>
                 </h2>
             </div>
             <div class="location-content reveal reveal-delay-2">
@@ -2251,8 +2259,7 @@
     <section class="booking" id="booking">
         <div class="booking-inner">
             <div class="booking-image reveal">
-                <img src="barbershop-landing-51.aura.build/assets/photo-1633681926022-84c23e8cb2_e6bc846c0450.avif"
-                    alt="Cadeira">
+                <img src="assets/images/Gemini_Generated_Image_tnfkeutnfkeutnfk.png" alt="Agendamento">
             </div>
             <div class="booking-form-wrapper">
                 <div class="section-tag reveal">
@@ -2260,7 +2267,7 @@
                     <span class="section-tag-text">Agende seu Horário</span>
                 </div>
                 <h2 class="section-title reveal reveal-delay-1">RESERVE SUA <span
-                        class="italic accent-red">Cadeira</span></h2>
+                        class="italic accent-gold">Cadeira</span></h2>
                 <form class="booking-form reveal reveal-delay-2" onsubmit="event.preventDefault();">
                     <div class="form-row">
                         <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
@@ -2297,7 +2304,7 @@
                 <span class="section-tag-text">Siga-nos</span>
                 <span class="section-tag-line"></span>
             </div>
-            <h2 class="section-title reveal reveal-delay-1">NO <span class="italic accent-red">Instagram</span></h2>
+            <h2 class="section-title reveal reveal-delay-1">NO <span class="italic accent-gold">Instagram</span></h2>
             <a class="instagram-handle reveal reveal-delay-2" href="https://www.instagram.com/basebarberclub/"
                 target="_blank">
                 <iconify-icon icon="solar:camera-bold"></iconify-icon> @basebarberclub
