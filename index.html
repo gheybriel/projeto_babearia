@@ -1065,20 +1065,21 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            min-height: 320px;
-            display: flex;
+            display: grid;
             align-items: center;
-            justify-content: center;
         }
 
         .testimonial-item {
-            display: none;
+            grid-area: 1 / 1;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
             width: 100%;
-            animation: fadeIn 0.6s ease;
         }
 
         .testimonial-item.active {
-            display: block;
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .testimonial-stars {
@@ -1132,6 +1133,77 @@
         .testimonial-dot.active {
             background: var(--white);
             transform: scale(1.2);
+        }
+
+        /* ========== LOCATION ========== */
+        .location {
+            padding: 5rem 0;
+            background: #000;
+        }
+
+        .location-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .location-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            background: var(--black-light);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .location-map {
+            width: 100%;
+            height: 400px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-item iconify-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .info-item strong {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* ========== BOOKING FORM ========== */
@@ -1310,17 +1382,41 @@
             color: var(--gold);
         }
 
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 3px;
+        .instagram-carousel-wrapper {
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding-bottom: 2rem;
+        }
+
+        .instagram-carousel {
+            display: flex;
+            width: max-content;
+            animation: instagramScroll 150s linear infinite;
+            gap: 5px;
+        }
+
+        .instagram-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes instagramScroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .instagram-item {
+            width: 350px;
             aspect-ratio: 1;
             overflow: hidden;
             position: relative;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .instagram-item img {
@@ -1566,6 +1662,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
             .booking {
                 padding: 6rem 3rem;
             }
@@ -1680,6 +1780,10 @@
                 font-size: 25vw;
             }
 
+            .location-map {
+                height: 300px;
+            }
+
             .booking {
                 padding: 4rem 1.5rem;
             }
@@ -1770,9 +1874,9 @@
                 <img src="assets/images/Group_7.png" alt="Começa Aqui" class="title-logo-style">
             </h1>
             <p class="hero-desc" style="margin-bottom: 2rem;">
-                A Base Barber Shop transforma estilo em identidade. Trabalhamos visagismo, simetria e textura para criar
+                A BASE Barber Shop transforma estilo em identidade. Trabalhamos visagismo, simetria e textura para criar
                 um visual que realmente representa quem você é.<br><br>Aqui, cada corte tem propósito. Cada detalhe tem
-                intenção.<br><br>Bem-vindo à experiência Base.
+                intenção.<br><br>Bem-vindo à experiência BASE.
             </p>
             <div class="hero-actions">
                 <a class="btn-primary" href="#booking">
@@ -1854,7 +1958,7 @@
             <h2 class="section-title reveal reveal-delay-1">MAIS QUE UMA<br>BARBEARIA.<br>UM <span
                     class="italic accent-red">Legado.</span></h2>
             <p class="about-text reveal reveal-delay-2">
-                Nascida no Belenzinho, na zona leste de São Paulo, a Base Barber Shop redefiniu o padrão de estética
+                Nascida no Belenzinho, na zona leste de São Paulo, a BASE Barber Shop redefiniu o padrão de estética
                 masculina desde a sua fundação em 2017. Mais do que executar cortes impecáveis ou alinhar a sua barba,
                 nossa verdadeira missão é conectar você à sua melhor versão. Para alcançar resultados excepcionais,
                 nossos barbers aplicam técnicas avançadas de visagismo capilar, analisando cuidadosamente a simetria do
@@ -2049,7 +2153,8 @@
                 <span class="section-tag-text">Depoimentos</span>
                 <span class="section-tag-line"></span>
             </div>
-            <h2 class="section-title reveal reveal-delay-1">O QUE DIZEM<br>NOSSOS <span class="italic accent-red">Clientes</span>
+            <h2 class="section-title reveal reveal-delay-1">O QUE DIZEM<br>NOSSOS <span
+                    class="italic accent-red">Clientes</span>
             </h2>
         </div>
         <div class="testimonial-slider">
@@ -2060,7 +2165,10 @@
                         icon="solar:star-bold"></iconify-icon><iconify-icon
                         icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
                 </div>
-                <p class="testimonial-quote">"Sou cliente desde a Barbearia Base 1.0 de 2017. Passei por todas as fases, e sempre notei a evolução, o progresso. Os caras são bons demais. Na minha opinião são os melhores barbeiros da região do Belenzinho. Pra falar a verdade de São Paulo. Me recuso a cortar em outro lugar. Recomendo os barbeiros da Base de olhos fechados."</p>
+                <p class="testimonial-quote">"Sou cliente desde a Barbearia BASE 1.0 de 2017. Passei por todas as fases,
+                    e sempre notei a evolução, o progresso. Os caras são bons demais. Na minha opinião são os melhores
+                    barbeiros da região do Belenzinho. Pra falar a verdade de São Paulo. Me recuso a cortar em outro
+                    lugar. Recomendo os barbeiros da BASE de olhos fechados."</p>
                 <div class="testimonial-author-name">HYAN PEREIRA</div>
                 <div class="testimonial-author-title">Cliente desde 2017</div>
             </div>
@@ -2071,7 +2179,9 @@
                         icon="solar:star-bold"></iconify-icon><iconify-icon
                         icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
                 </div>
-                <p class="testimonial-quote">"Se tivesse mais estrelas sem sombra de dúvidas avaliaria, a melhor de sp podem ir sem medo a base faz milagres! Parabéns Deh pela equipe pelo empenho e pelo profissionalismo"</p>
+                <p class="testimonial-quote">"Se tivesse mais estrelas sem sombra de dúvidas avaliaria, a melhor de sp
+                    podem ir sem medo a BASE faz milagres! Parabéns Deh pela equipe pelo empenho e pelo
+                    profissionalismo"</p>
                 <div class="testimonial-author-name">EDSON BATISTA</div>
                 <div class="testimonial-author-title">Cliente desde 2022</div>
             </div>
@@ -2079,6 +2189,61 @@
         <div class="testimonial-nav">
             <button class="testimonial-dot active" data-index="0"></button>
             <button class="testimonial-dot" data-index="1"></button>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="location" id="location">
+        <div class="location-inner">
+            <div class="location-header">
+                <div class="section-tag reveal" style="justify-content: center;">
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">Onde Estamos</span>
+                    <span class="section-tag-line"></span>
+                </div>
+                <h2 class="section-title reveal reveal-delay-1">NOSSA <span class="italic accent-red">Localização</span>
+                </h2>
+            </div>
+            <div class="location-content reveal reveal-delay-2">
+                <div class="location-map">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Rua%20Conselheiro%20Cotegipe,%20128,%20Bel%C3%A9m,%20S%C3%A3o%20Paulo%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="location-info">
+                    <div class="info-item">
+                        <iconify-icon icon="solar:map-point-bold"></iconify-icon>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Rua Conselheiro Cotegipe, 128<br>Belém, São Paulo - SP, 03058</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <iconify-icon icon="solar:phone-bold"></iconify-icon>
+                        <div>
+                            <strong>Contato</strong>
+                            <p>+55 11 91716-7049</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <iconify-icon icon="solar:clock-circle-bold"></iconify-icon>
+                        <div>
+                            <strong>Funcionamento</strong>
+                            <p>Segunda a Sexta: 10h às 20h<br>Sábado: 10h às 18h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <iconify-icon icon="solar:star-bold"></iconify-icon>
+                        <div>
+                            <strong>Comodidades</strong>
+                            <p style="display: flex; align-items: center; gap: 0.5rem;">
+                                <iconify-icon icon="solar:wifi-router-bold"></iconify-icon> Wi-Fi Grátis - Atendemos
+                                Crianças
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2132,30 +2297,104 @@
                 <span class="section-tag-text">Siga-nos</span>
                 <span class="section-tag-line"></span>
             </div>
-            <h2 class="section-title reveal reveal-delay-1">NO <span class="italic">Instagram</span></h2>
-            <a class="instagram-handle reveal reveal-delay-2" href="#">
-                <iconify-icon icon="solar:camera-bold"></iconify-icon> @bladeandco
+            <h2 class="section-title reveal reveal-delay-1">NO <span class="italic accent-red">Instagram</span></h2>
+            <a class="instagram-handle reveal reveal-delay-2" href="https://www.instagram.com/basebarberclub/"
+                target="_blank">
+                <iconify-icon icon="solar:camera-bold"></iconify-icon> @basebarberclub
             </a>
         </div>
-        <div class="instagram-grid">
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1621605815971-fbc98d6650_df200a8ce972.jpg"
-                    alt="Insta"></div>
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1622286342621-4bd786c244_af49aaaf1826.jpg"
-                    alt="Insta"></div>
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1599351431202-1e0f013789_12f22dc1e8ca.jpg"
-                    alt="Insta"></div>
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1503951914875-452162b0f3_ad68379d68f9.jpg"
-                    alt="Insta"></div>
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1605497788044-5a32c70784_bf2592badfe2.jpg"
-                    alt="Insta"></div>
-            <div class="instagram-item"><img
-                    src="barbershop-landing-51.aura.build/assets/photo-1493256338651-d82f7acb2b_f48db52b0712.jpg"
-                    alt="Insta"></div>
+        <div class="instagram-carousel-wrapper">
+            <div class="instagram-carousel">
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_035.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_037.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_017.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_044.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_045.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_046.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_007.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_008.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_011.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_012.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_013.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_014.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_016.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_017.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_018.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_020.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_010.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_004.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_003.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_029.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_025.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_002.jpg" alt="Insta" style="object-position: top;"></a>
+                <!-- Duplicação para loop infinito -->
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_035.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_037.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_017.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_044.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_045.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_046.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_007.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_008.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_011.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_012.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_013.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_014.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_016.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_017.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_018.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_020.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_010.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_004.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_003.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_029.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_025.jpg" alt="Insta" style="object-position: top;"></a>
+                <a href="https://www.instagram.com/basebarberclub/" target="_blank" class="instagram-item"><img
+                        src="assets/images/DM_20260606113517_002.jpg" alt="Insta" style="object-position: top;"></a>
+            </div>
         </div>
     </section>
 
@@ -2166,12 +2405,11 @@
                 <div class="footer-brand">
                     <img src="assets/images/image.svg" alt="Logo" style="width: 80px; height: auto; border-radius: 0;">
                 </div>
-                <p class="footer-brand-desc">Onde a tradição encontra a arte moderna. Experiências premium de grooming
-                    para cavalheiros desde 2018.</p>
+                <p class="footer-brand-desc">Mais que uma barbearia. Um legado desde 2017 cuidando de você e da sua
+                    melhor versão no Belenzinho.</p>
                 <div class="footer-socials">
-                    <a href="#"><iconify-icon icon="solar:camera-bold"></iconify-icon></a>
-                    <a href="#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a>
-                    <a href="#"><iconify-icon icon="solar:share-bold"></iconify-icon></a>
+                    <a href="https://www.instagram.com/basebarberclub/" target="_blank"><iconify-icon
+                            icon="solar:camera-bold"></iconify-icon></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -2180,27 +2418,28 @@
                     <li><a href="#about">História</a></li>
                     <li><a href="#services">Serviços</a></li>
                     <li><a href="#gallery">Galeria</a></li>
-                    <li><a href="#team">Barbeiros</a></li>
+                    <li><a href="#team">Barbers</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">SERVIÇOS</div>
                 <ul>
-                    <li><a href="#services">Corte Assinatura</a></li>
-                    <li><a href="#services">Barba Toalha Quente</a></li>
-                    <li><a href="#services">O Pacote Real</a></li>
+                    <li><a href="#services">Barboterapia</a></li>
+                    <li><a href="#services">Botox</a></li>
+                    <li><a href="#services">Combo Master</a></li>
+                    <li><a href="#services">Pezinho + Barba</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">CONTATO</div>
                 <div class="footer-contact-item"><iconify-icon icon="solar:map-point-bold"></iconify-icon>
-                    <p>Av. Principal, 1000<br>Centro, SP 01000-000</p>
+                    <p>Rua Conselheiro Cotegipe, 128<br>Belém, São Paulo SP, 03058</p>
                 </div>
                 <div class="footer-contact-item"><iconify-icon icon="solar:phone-bold"></iconify-icon>
-                    <p>+55 (11) 99999-9999</p>
+                    <p>+55 11 91716-7049</p>
                 </div>
                 <div class="footer-contact-item"><iconify-icon icon="solar:clock-circle-bold"></iconify-icon>
-                    <p>Seg-Sex: 9h - 20h<br>Sáb: 9h - 18h</p>
+                    <p>Seg a Sexta - 10h as 20h<br>Sáb das 10h - 18h</p>
                 </div>
             </div>
         </div>
