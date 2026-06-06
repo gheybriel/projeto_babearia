@@ -324,6 +324,7 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 1024px) {
+            img, video { filter: grayscale(0) !important; }
             .hero { grid-template-columns: 1fr; min-height: auto; }
             .hero-content { padding: 8rem 3rem 4rem; min-height: 70vh; justify-content: flex-end; }
             .hero-image { height: 60vh; }
@@ -391,16 +392,13 @@
             <img src="assets/images/Group_6.png" alt="Logo">
         </a>
         <div class="nav-group right-group">
-            <a href="index.html#location" class="nav-location" style="display: flex; align-items: center; gap: 0.5rem; color: var(--gold); font-size: 0.85rem; margin-right: 1.5rem; font-family: 'Bebas Neue', cursive; letter-spacing: 0.1em; white-space: nowrap; text-decoration: none; border: 1px solid rgba(212, 175, 55, 0.3); padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'" onmouseout="this.style.background='transparent'">
-                <iconify-icon icon="solar:map-point-bold" style="font-size: 1.2rem;"></iconify-icon>
-                <span>Localização</span>
-            </a>
             <ul class="nav-links">
                 <li><a href="index.html#about">História</a></li>
                 <li><a href="index.html#services">Serviços</a></li>
                 <li><a href="index.html#gallery">Galeria</a></li>
                 <li><a href="index.html#team">Barbers</a></li>
                 <li><a href="index.html#testimonials">Avaliações</a></li>
+                <li><a href="index.html#location">Localização</a></li>
             </ul>
             <a class="nav-cta" href="index.html#booking-form">Agendar Agora</a>
         </div>
