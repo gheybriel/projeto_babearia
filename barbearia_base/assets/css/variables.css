@@ -1,0 +1,25 @@
+:root {
+    /* Cores (Baseadas na referência para manter uma identidade visual premium) */
+    --gold: #C8A97E;
+    --gold-light: #D4BC96;
+    --gold-dark: #A8885E;
+    
+    --black: #0A0A0A;
+    --black-light: #141414;
+    --black-medium: #1A1A1A;
+    
+    --white: #FAFAF9;
+    --white-dim: #E8E6E1;
+    
+    --gray: #6B6B6B;
+    --gray-light: #999999;
+
+    /* Fontes */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Bebas Neue', Impact, sans-serif;
+
+    /* Animações e Transições */
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
