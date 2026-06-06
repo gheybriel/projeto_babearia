@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLADE & CO. | Premium Design System</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #C8A97E;
+            --gold-light: #D4BC96;
+            --gold-dark: #A8885E;
+            --black: #0A0A0A;
+            --black-light: #141414;
+            --black-medium: #1A1A1A;
+            --white: #FAFAF9;
+            --white-dim: #E8E6E1;
+            --gray: #6B6B6B;
+            --gray-light: #999999;
+            
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --display: 'Bebas Neue', Impact, sans-serif;
+            
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: var(--gold) var(--black); }
+        body { font-family: var(--sans); background: var(--black); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; }
+        
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+        /* ========== BACKGROUND ANIMATIONS ========== */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(20,20,20,1) 0%, rgba(10,10,10,1) 100%);
+        }
+        .gold-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200, 169, 126, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -10%;
+            left: -10%;
+            animation: floatGlow 15s infinite alternate ease-in-out;
+        }
+        .gold-glow.two {
+            top: auto;
+            bottom: -20%;
+            left: auto;
+            right: -10%;
+            animation-duration: 20s;
+            animation-delay: -5s;
+        }
+        .gold-line-decor {
+            position: absolute;
+            width: 1px;
+            height: 100vh;
+            background: linear-gradient(to bottom, transparent, rgba(200, 169, 126, 0.15), transparent);
+            top: -100vh;
+            animation: lineDrop 10s infinite linear;
+        }
+        .gold-line-decor:nth-child(1) { left: 15%; animation-delay: 0s; animation-duration: 12s; }
+        .gold-line-decor:nth-child(2) { left: 50%; animation-delay: -4s; animation-duration: 15s; }
+        .gold-line-decor:nth-child(3) { left: 85%; animation-delay: -8s; animation-duration: 18s; }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
+        @keyframes lineDrop {
+            0% { top: -100vh; }
+            100% { top: 100vh; }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SCROLL REVEAL UTILITIES ========== */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s var(--ease-out-expo); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ========== TYPOGRAPHY BASE ========== */
+        .section-tag { display: inline-flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .section-tag-line { width: 30px; height: 1px; background: var(--gold); }
+        .section-tag-text { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); }
+        .section-title { font-family: var(--display); font-size: clamp(2.5rem, 4vw, 4rem); letter-spacing: 0.05em; line-height: 1.05; margin-bottom: 2rem; color: var(--white); }
+        .section-title .italic { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--gold); text-transform: none; font-size: 0.9em; }
+
+        /* ========== HERO DEMO ========== */
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; border-bottom: 1px solid rgba(200, 169, 126, 0.1); }
+        .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem; position: relative; z-index: 2; }
+        .hero-title { font-family: var(--display); font-size: clamp(3.5rem, 7vw, 7rem); line-height: 0.95; letter-spacing: 0.04em; color: var(--white); margin-bottom: 2rem; }
+        .hero-title span { display: block; opacity: 0; transform: translateY(60px); }
+        .hero-title span:nth-child(1) { animation: fadeUp 1s var(--ease-out-expo) 0.2s forwards; }
+        .hero-title span:nth-child(2) { animation: fadeUp 1s var(--ease-out-expo) 0.35s forwards; }
+        .hero-title span:nth-child(3) { animation: fadeUp 1s var(--ease-out-expo) 0.5s forwards; }
+        .hero-title .title-stroke { -webkit-text-stroke: 1.5px var(--white); color: transparent; }
+        .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--gray-light); max-width: 420px; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 0.7s forwards; }
+        .hero-actions { display: flex; align-items: center; gap: 2rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 0.9s forwards; }
+        .hero-image { position: relative; overflow: hidden; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; scale: 1.1; animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0; }
+        @keyframes heroImgReveal { from { opacity: 0; scale: 1.2; } to { opacity: 1; scale: 1.05; } }
+        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 30%), linear-gradient(to top, var(--black) 0%, transparent 20%); pointer-events: none; }
+
+        /* ========== UI COMPONENTS ========== */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 1rem; background: var(--gold); color: var(--black);
+            padding: 1.1rem 2.5rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
+            transition: all 0.4s var(--ease-out-expo); position: relative; overflow: hidden;
+        }
+        .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--gold-dark); transform: translateX(-101%); transition: transform 0.4s var(--ease-out-expo); }
+        .btn-primary:hover::before { transform: translateX(0); }
+        .btn-primary span, .btn-primary .iconify { position: relative; z-index: 1; }
+        
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.75rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--white-dim); transition: color 0.3s ease; position: relative;
+            padding: 1.1rem 2.5rem; border: 1px solid rgba(200, 169, 126, 0.3);
+        }
+        .btn-outline::after { content: ''; position: absolute; inset: 0; background: rgba(200, 169, 126, 0.05); transform: scaleY(0); transform-origin: bottom; transition: transform 0.4s var(--ease-out-expo); }
+        .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+        .btn-outline:hover::after { transform: scaleY(1); }
+        .btn-outline span, .btn-outline .iconify { position: relative; z-index: 1; transition: transform 0.3s ease; }
+        .btn-outline:hover .iconify { transform: translateX(4px); }
+
+        /* ========== DESIGN SYSTEM LAYOUT ========== */
+        .ds-container { max-width: 1400px; margin: 0 auto; padding: 5rem; }
+        .ds-header { margin-bottom: 5rem; border-bottom: 1px solid rgba(200, 169, 126, 0.1); padding-bottom: 2rem; }
+        .ds-section { margin-bottom: 8rem; position: relative; }
+        .ds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+        
+        /* Typography Spec */
+        .type-spec { display: flex; flex-direction: column; gap: 2rem; }
+        .type-row { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; }
+        .type-meta { font-family: var(--sans); font-size: 0.7rem; color: var(--gray-light); letter-spacing: 0.1em; margin-bottom: 0.5rem; display: flex; gap: 1rem; }
+        .type-meta span { background: rgba(200, 169, 126, 0.1); padding: 0.2rem 0.5rem; border-radius: 2px; color: var(--gold); }
+        
+        /* Color Spec */
+        .color-card { background: var(--black-light); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; transition: transform 0.3s ease; }
+        .color-card:hover { transform: translateY(-5px); border-color: rgba(200, 169, 126, 0.3); }
+        .color-swatch { height: 120px; width: 100%; display: flex; align-items: flex-end; justify-content: flex-end; padding: 1rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+        .color-info { padding: 1.5rem; }
+        .color-name { font-family: var(--sans); font-size: 1rem; color: var(--white); font-weight: 600; margin-bottom: 0.25rem; }
+        .color-role { font-size: 0.75rem; color: var(--gray); line-height: 1.4; }
+
+        /* UI Cards Spec */
+        .service-card {
+            background: var(--black); padding: 3rem 2rem; position: relative; overflow: hidden;
+            transition: all 0.5s var(--ease-out-expo); cursor: pointer; border: 1px solid rgba(255,255,255,0.02);
+        }
+        .service-card::before {
+            content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(200, 169, 126, 0.08) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover { transform: translateY(-5px); border-color: rgba(200, 169, 126, 0.2); }
+        .service-icon { font-size: 2.2rem; color: var(--gold); margin-bottom: 2rem; transition: transform 0.4s var(--ease-out-expo); }
+        .service-card:hover .service-icon { transform: scale(1.1); }
+        .service-name { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+        .service-desc { font-size: 0.85rem; line-height: 1.7; color: var(--gray); margin-bottom: 2rem; }
+        .service-arrow { position: absolute; top: 2rem; right: 2rem; font-size: 1.2rem; color: var(--gold); opacity: 0; transform: translate(-10px, 10px); transition: all 0.4s var(--ease-out-expo); }
+        .service-card:hover .service-arrow { opacity: 1; transform: translate(0, 0); }
+
+        /* Form Inputs Spec */
+        .form-group { position: relative; margin-bottom: 1.5rem; width: 100%; max-width: 400px; }
+        .form-group label { display: block; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 0.5rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 1rem 0; background: transparent; border: none; border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+            color: var(--white); font-family: var(--sans); font-size: 0.95rem; outline: none; transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus { border-bottom-color: var(--gold); }
+        .form-group input::placeholder { color: var(--gray); }
+
+        /* Badges / Tags */
+        .badge { display: inline-flex; align-items: center; justify-content: center; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+        .badge-gold { background: rgba(200, 169, 126, 0.1); color: var(--gold); border: 1px solid rgba(200, 169, 126, 0.2); }
+        .badge-dark { background: var(--black-medium); color: var(--white-dim); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        /* Icons Spec */
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; }
+        .icon-box { aspect-ratio: 1; background: var(--black-light); border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
+        .icon-box:hover { background: rgba(200, 169, 126, 0.05); border-color: rgba(200, 169, 126, 0.3); transform: translateY(-3px); }
+        .icon-box iconify-icon { font-size: 1.8rem; color: var(--gold); transition: transform 0.3s ease; }
+        .icon-box:hover iconify-icon { transform: scale(1.1); }
+
+        /* Navigation Spec */
+        .nav-spec { background: rgba(10, 10, 10, 0.95); border: 1px solid rgba(200, 169, 126, 0.2); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; border-radius: 8px; }
+        .nav-logo { font-family: var(--display); font-size: 1.5rem; letter-spacing: 0.15em; color: var(--white); display: flex; align-items: center; gap: 0.5rem; }
+        .nav-logo .logo-ampersand { color: var(--gold); font-family: var(--serif); font-style: italic; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease-out-expo); }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Component Showcase Container */
+        .showcase-box { background: var(--black-light); border: 1px dashed rgba(200, 169, 126, 0.3); padding: 3rem; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 2rem; position: relative; }
+        .showcase-label { position: absolute; top: -0.6rem; left: 1.5rem; background: var(--black); padding: 0 0.5rem; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .ds-container { padding: 2rem; }
+            .hero-content { padding: 4rem 2rem; }
+            .hero { grid-template-columns: 1fr; }
+            .hero-image { height: 300px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="gold-glow"></div>
+        <div class="gold-glow two"></div>
+        <div class="gold-line-decor"></div>
+        <div class="gold-line-decor"></div>
+        <div class="gold-line-decor"></div>
+    </div>
+
+    <!-- 1. HERO DEMO -->
+    <section class="hero ds-hero">
+        <div class="hero-content">
+            <div class="section-tag">
+                <span class="section-tag-line"></span>
+                <span class="section-tag-text">Design System v1.0</span>
+            </div>
+            <h1 class="hero-title">
+                <span>DIGITAL</span>
+                <span>CRAFTSMAN</span>
+                <span class="title-stroke">&amp; ELEGANCE</span>
+            </h1>
+            <p class="hero-desc">
+                The foundational blueprint for the Blade & Co. digital experience. Where robust engineering meets uncompromising luxury aesthetic. Every component crafted with extreme precision.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="#components">
+                    <span>Explore Components</span>
+                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="../barbershop-landing-51.aura.build/assets/photo-1621605815971-fbc98d6650_2ef33d15070f.avif" alt="Design System Hero">
+        </div>
+    </section>
+
+    <div class="ds-container">
+        <!-- 2. TYPOGRAPHY -->
+        <section class="ds-section typography" id="typography">
+            <div class="ds-header reveal">
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">01. Typography</span>
+                </div>
+                <h2 class="section-title">TYPE <span class="italic">Hierarchy</span></h2>
+            </div>
+            
+            <div class="type-spec">
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Bebas Neue</span><span>Weight: 400</span><span>Role: Primary Display</span>
+                    </div>
+                    <div style="font-family: var(--display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.05em; color: var(--white);">
+                        H1. HEADLINE DISPLAY
+                    </div>
+                </div>
+
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Bebas Neue + Playfair Display</span><span>Weight: 400</span><span>Role: Section Titles</span>
+                    </div>
+                    <div class="section-title" style="margin: 0;">
+                        H2. SECTION <span class="italic">Title</span>
+                    </div>
+                </div>
+
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Bebas Neue</span><span>Weight: 400</span><span>Role: Component Titles</span>
+                    </div>
+                    <div style="font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.1em; color: var(--white);">
+                        H3. SERVICE / CARD TITLE
+                    </div>
+                </div>
+
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Inter</span><span>Weight: 400</span><span>Role: Body Large</span>
+                    </div>
+                    <div style="font-family: var(--sans); font-size: 1rem; line-height: 1.8; color: var(--gray-light); max-width: 800px;">
+                        P. Body Large. Step into a world where every cut tells a story. Our master barbers blend time-honored techniques with contemporary artistry to craft your signature look.
+                    </div>
+                </div>
+
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Inter</span><span>Weight: 400</span><span>Role: Body Normal</span>
+                    </div>
+                    <div style="font-family: var(--sans); font-size: 0.85rem; line-height: 1.7; color: var(--gray);">
+                        P. Body Normal. A tailored haircut experience with consultation, hot towel treatment, and precision styling.
+                    </div>
+                </div>
+
+                <div class="type-row reveal">
+                    <div class="type-meta">
+                        <span>Font: Inter</span><span>Weight: 600</span><span>Role: Labels / Tags / Buttons</span>
+                    </div>
+                    <div style="font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold);">
+                        TAG. EYEBROW TEXT & BUTTONS
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. COLOR SYSTEM -->
+        <section class="ds-section colors" id="colors">
+            <div class="ds-header reveal">
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">02. Colors</span>
+                </div>
+                <h2 class="section-title">COLOR <span class="italic">Palette</span></h2>
+            </div>
+
+            <div class="ds-grid">
+                <!-- Gold Scale -->
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--gold); color: var(--black);">#C8A97E</div>
+                    <div class="color-info">
+                        <div class="color-name">Gold Primary</div>
+                        <div class="color-role">Primary accent, buttons, icons, highlights.</div>
+                    </div>
+                </div>
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--gold-light); color: var(--black);">#D4BC96</div>
+                    <div class="color-info">
+                        <div class="color-name">Gold Light</div>
+                        <div class="color-role">Hover states, bright gradients.</div>
+                    </div>
+                </div>
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--gold-dark);">#A8885E</div>
+                    <div class="color-info">
+                        <div class="color-name">Gold Dark</div>
+                        <div class="color-role">Button active states, subtle borders.</div>
+                    </div>
+                </div>
+
+                <!-- Neutral Scale -->
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--black);">#0A0A0A</div>
+                    <div class="color-info">
+                        <div class="color-name">True Black</div>
+                        <div class="color-role">Main background, deep contrast.</div>
+                    </div>
+                </div>
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--black-light);">#141414</div>
+                    <div class="color-info">
+                        <div class="color-name">Black Light</div>
+                        <div class="color-role">Card backgrounds, section alternates.</div>
+                    </div>
+                </div>
+                <div class="color-card reveal">
+                    <div class="color-swatch" style="background-color: var(--gray-light); color: var(--black);">#999999</div>
+                    <div class="color-info">
+                        <div class="color-name">Gray Light</div>
+                        <div class="color-role">Body text, descriptions, secondary text.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. UI COMPONENTS -->
+        <section class="ds-section components" id="components">
+            <div class="ds-header reveal">
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">03. UI Components</span>
+                </div>
+                <h2 class="section-title">INTERACTIVE <span class="italic">Elements</span></h2>
+            </div>
+
+            <!-- Buttons -->
+            <div class="showcase-box reveal">
+                <span class="showcase-label">Buttons</span>
+                <a class="btn-primary" href="#">
+                    <span>Primary Action</span>
+                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </a>
+                <a class="btn-outline" href="#">
+                    <span>Outline Button</span>
+                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </a>
+            </div>
+
+            <!-- Inputs -->
+            <div class="showcase-box reveal" style="align-items: flex-start;">
+                <span class="showcase-label">Form Inputs</span>
+                <div class="form-group">
+                    <label>Standard Input</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Select Dropdown</label>
+                    <select>
+                        <option value="">Choose a service...</option>
+                        <option value="signature">Signature Cut -- $45</option>
+                        <option value="shave">Hot Towel Shave -- $55</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="showcase-box reveal">
+                <span class="showcase-label">Badges / Tags</span>
+                <span class="badge badge-gold">Premium Service</span>
+                <span class="badge badge-dark">New Barber</span>
+            </div>
+
+            <!-- Navbar Spec -->
+            <div class="showcase-box reveal" style="display: block;">
+                <span class="showcase-label">Navbar Component</span>
+                <div class="nav-spec">
+                    <div class="nav-logo">
+                        BLADE <span class="logo-ampersand">&amp;</span> CO.
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Barbers</a></li>
+                    </ul>
+                    <a class="btn-outline" href="#" style="padding: 0.75rem 1.5rem; font-size: 0.65rem;">
+                        <span>Book Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="showcase-box reveal" style="background: transparent; border: none; padding: 0;">
+                <div style="width: 100%; max-width: 400px;">
+                    <span class="showcase-label" style="top: -2rem; left: 0;">Service Card Component</span>
+                    <div class="service-card">
+                        <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
+                        <iconify-icon icon="solar:arrow-right-up-linear" class="service-arrow"></iconify-icon>
+                        <h3 class="service-name">SIGNATURE CUT</h3>
+                        <p class="service-desc">A tailored haircut experience with consultation, hot towel treatment, and precision styling.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid rgba(200, 169, 126, 0.1);">
+                            <span style="font-family: var(--display); font-size: 1.6rem; color: var(--gold);">$45</span>
+                            <span style="font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray);">45 Min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ICONS -->
+        <section class="ds-section icons" id="icons">
+            <div class="ds-header reveal">
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    <span class="section-tag-text">04. Icons</span>
+                </div>
+                <h2 class="section-title">SOLAR <span class="italic">Iconography</span></h2>
+            </div>
+            
+            <div class="icon-grid reveal">
+                <div class="icon-box"><iconify-icon icon="solar:scissors-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:fire-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:crown-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:star-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:pallete-2-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:waterdrop-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:magic-stick-3-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:face-scan-circle-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:camera-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:map-point-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:phone-bold"></iconify-icon></div>
+                <div class="icon-box"><iconify-icon icon="solar:clock-circle-bold"></iconify-icon></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts for Scroll Reveal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
