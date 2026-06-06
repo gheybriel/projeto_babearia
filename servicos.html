@@ -376,357 +376,261 @@
     </style>
 </head>
 <body>
-
-    <!-- Ambient Background (B&W feel) -->
     <div class="ambient-bg">
         <div class="bg-line-decor"></div>
         <div class="bg-line-decor"></div>
         <div class="bg-line-decor"></div>
     </div>
-
-    <!-- Navigation -->
+    
     <nav class="nav" id="nav">
-        <!-- Logo Esquerda -->
-        <a class="nav-logo" href="#">
+        <a class="nav-logo" href="index.html">
             <img src="assets/images/Group_6.png" alt="Logo">
         </a>
-        
-        <!-- Menu Direita -->
         <div class="nav-group right-group">
             <ul class="nav-links">
-                <li><a href="#about">História</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#team">Barbeiros</a></li>
-                <li><a href="#testimonials">Avaliações</a></li>
+                <li><a href="index.html#about">História</a></li>
+                <li><a href="index.html#services">Serviços</a></li>
+                <li><a href="index.html#gallery">Galeria</a></li>
+                <li><a href="index.html#team">Barbeiros</a></li>
+                <li><a href="index.html#testimonials">Avaliações</a></li>
             </ul>
-            <a class="nav-cta" href="#booking">Agendar Agora</a>
+            <a class="nav-cta" href="index.html#booking">Agendar Agora</a>
         </div>
-        
         <div class="nav-hamburger" id="hamburger">
             <span></span><span></span><span></span>
         </div>
     </nav>
-
-    <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="#about" onclick="closeMobileNav()">História</a>
-        <a href="#services" onclick="closeMobileNav()">Serviços</a>
-        <a href="#gallery" onclick="closeMobileNav()">Galeria</a>
-        <a href="#team" onclick="closeMobileNav()">Barbeiros</a>
-        <a href="#testimonials" onclick="closeMobileNav()">Avaliações</a>
-        <a href="#booking" onclick="closeMobileNav()">Agendar Agora</a>
+        <a href="index.html#about">História</a>
+        <a href="index.html#services">Serviços</a>
+        <a href="index.html#gallery">Galeria</a>
+        <a href="index.html#team">Barbeiros</a>
+        <a href="index.html#testimonials">Avaliações</a>
+        <a href="index.html#booking">Agendar Agora</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-tag">
-                <span class="section-tag-line red"></span>
-                <span class="section-tag-text red">Barbearia conceito, desde 2017</span>
-            </div>
-            <h1 class="hero-title">
-                <span>SUA MELHOR</span>
-                <span>VERSÃO</span>
-                <img src="assets/images/Group_7.png" alt="Começa Aqui" class="title-logo-style">
-            </h1>
-            <p class="hero-desc" style="margin-bottom: 2rem;">
-                A Base Barber Shop transforma estilo em identidade. Trabalhamos visagismo, simetria e textura para criar um visual que realmente representa quem você é.<br><br>Aqui, cada corte tem propósito. Cada detalhe tem intenção.<br><br>Bem-vindo à experiência Base.
-            </p>
-            <div class="hero-actions">
-                <a class="btn-primary" href="#booking">
-                    <span>Reserve sua Cadeira</span>
-                    <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
-                </a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0;">
-                <source src="assets/images/@olucasfreestyle_já_atualizou_a_régua,_e_você_.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-item">
-                <span>Visual alinhado</span><div class="dot"></div>
-                <span>Barboterapia</span><div class="dot"></div>
-                <span>Visagismo capilar</span><div class="dot"></div>
-                <span>Design de barba</span><div class="dot"></div>
-                <span>Corte personalizado</span><div class="dot"></div>
-                <span>Sobrancelha na régua</span><div class="dot"></div>
-                <span>Confiança renovada</span><div class="dot"></div>
-                <span>Aparência impecável</span><div class="dot"></div>
-                <span>Estilo que impõe presença</span><div class="dot"></div>
-                <span>Precisão em cada detalhe</span><div class="dot"></div>
-            </div>
-            <div class="marquee-item">
-                <span>Visual alinhado</span><div class="dot"></div>
-                <span>Barboterapia</span><div class="dot"></div>
-                <span>Visagismo capilar</span><div class="dot"></div>
-                <span>Design de barba</span><div class="dot"></div>
-                <span>Corte personalizado</span><div class="dot"></div>
-                <span>Sobrancelha na régua</span><div class="dot"></div>
-                <span>Confiança renovada</span><div class="dot"></div>
-                <span>Aparência impecável</span><div class="dot"></div>
-                <span>Estilo que impõe presença</span><div class="dot"></div>
-                <span>Precisão em cada detalhe</span><div class="dot"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-images reveal">
-            <img src="assets/images/DM_20260606113421_003.jpg" alt="Interior" class="about-img-main">
-            <img src="assets/images/DM_20260606113517_018.jpg" alt="Ferramentas" class="about-img-secondary">
-            <div class="about-accent">BBS</div>
-        </div>
-        <div class="about-content">
-            <div class="section-tag reveal">
-                <span class="section-tag-line red"></span>
-                <span class="section-tag-text red">Nossa História</span>
-            </div>
-            <h2 class="section-title reveal reveal-delay-1">MAIS QUE UMA<br>BARBEARIA.<br>UM <span class="italic accent-red">Legado.</span></h2>
-            <p class="about-text reveal reveal-delay-2">
-                Nascida no Belenzinho, na zona leste de São Paulo, a Base Barber Shop redefiniu o padrão de estética masculina desde a sua fundação em 2017. Mais do que executar cortes impecáveis ou alinhar a sua barba, nossa verdadeira missão é conectar você à sua melhor versão. Para alcançar resultados excepcionais, nossos barbers aplicam técnicas avançadas de visagismo capilar, analisando cuidadosamente a simetria do seu rosto e a textura única dos seus fios. O resultado é um estilo criado em perfeita harmonia com os seus traços naturais. Convidamos você a vivenciar essa experiência exclusiva de cuidado e a fazer parte de uma família que não para de crescer.
-            </p>
-            <div class="about-stats reveal reveal-delay-3">
-                <div>
-                    <div class="stat-number">9+</div>
-                    <div class="stat-label">Anos de Experiência</div>
-                </div>
-                <div>
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Clientes Satisfeitos</div>
-                </div>
-                <div>
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Barbers Experientes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
+    
+    <section class="services" style="padding-top: 12rem;">
         <div class="services-header">
             <div>
                 <div class="section-tag reveal">
                     <span class="section-tag-line red"></span>
-                    <span class="section-tag-text red">O Que Oferecemos</span>
+                    <span class="section-tag-text red">Nosso Menu Completo</span>
                 </div>
-                <h2 class="section-title reveal reveal-delay-1">NOSSOS SERVIÇOS<br><span class="italic accent-red">Premium</span></h2>
+                <h2 class="section-title reveal reveal-delay-1">TODOS OS<br><span class="italic accent-red">Serviços</span></h2>
             </div>
-            <div class="services-header-right reveal reveal-delay-2">
-                <p>Cada serviço é elaborado com precisão e cuidado, utilizando apenas os melhores produtos e técnicas testadas pelo tempo.</p>
+            <div class="services-header-right reveal reveal-delay-2" style="display: flex; flex-direction: column; align-items: flex-end; gap: 1rem;">
+                <p>Nossa lista completa de serviços, elaborada para entregar a melhor experiência e resultados impecáveis para cada cliente.</p>
+                <a class="btn-outline" href="index.html#services">
+                    <iconify-icon icon="solar:arrow-left-linear"></iconify-icon> Voltar para o Início
+                </a>
             </div>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal">
-                <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
-                <iconify-icon icon="solar:arrow-right-up-linear" class="service-arrow"></iconify-icon>
-                <h3 class="service-name">CORTE</h3>
-                <p class="service-desc">Um corte clássico ou moderno, executado com precisão e estilo para a sua melhor versão.</p>
-                <div class="service-price-row">
-                    <span class="service-price">R$ 50</span>
-                    <span class="service-duration">45 Min</span>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-1">
-                <iconify-icon icon="solar:scissors-square-bold" class="service-icon"></iconify-icon>
-                <iconify-icon icon="solar:arrow-right-up-linear" class="service-arrow"></iconify-icon>
-                <h3 class="service-name">CORTE + SOBRANCELHA</h3>
-                <p class="service-desc">Visual completo com alinhamento perfeito dos fios e simetria na sobrancelha.</p>
-                <div class="service-price-row">
-                    <span class="service-price">R$ 65</span>
-                    <span class="service-duration">45 Min</span>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-2">
+
+            <div class="service-card reveal reveal-delay-0">
                 <iconify-icon icon="solar:fire-bold" class="service-icon"></iconify-icon>
-                <iconify-icon icon="solar:arrow-right-up-linear" class="service-arrow"></iconify-icon>
                 <h3 class="service-name">BARBOTERAPIA</h3>
                 <p class="service-desc">Tratamento completo com toalha quente, hidratação profunda e relaxamento.</p>
                 <div class="service-price-row">
                     <span class="service-price">A partir de R$ 50</span>
-                    <span class="service-duration">30 Min</span>
+                    <span class="service-duration">30 min</span>
                 </div>
             </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <iconify-icon icon="solar:magic-stick-3-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">BOTOX</h3>
+                <p class="service-desc">Redução de volume e alinhamento dos fios para um visual impecável.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 80</span>
+                    <span class="service-duration">90 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <iconify-icon icon="solar:crown-star-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">COMBO MASTER</h3>
+                <p class="service-desc">Cabelo, Barba, Sobrancelha, Massagem e Toalha Quente.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 100</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
             <div class="service-card reveal reveal-delay-3">
+                <iconify-icon icon="solar:scissors-square-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">COMBO PEZINHO + BARBA</h3>
+                <p class="service-desc">Pezinho, Barba e alinhamento de Sobrancelha.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 85</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-0">
                 <iconify-icon icon="solar:crown-bold" class="service-icon"></iconify-icon>
-                <iconify-icon icon="solar:arrow-right-up-linear" class="service-arrow"></iconify-icon>
                 <h3 class="service-name">COMBO PRESIDENTE</h3>
-                <p class="service-desc">Corte, sobrancelha, barba no ozônio e limpeza de pele premium. O cuidado definitivo.</p>
+                <p class="service-desc">Corte, Sobrancelha, Barba no Ozônio e Limpeza de Pele.</p>
                 <div class="service-price-row">
                     <span class="service-price">R$ 120</span>
-                    <span class="service-duration">45 Min</span>
+                    <span class="service-duration">45 min</span>
                 </div>
             </div>
-        </div>
-        <div class="reveal reveal-delay-2" style="text-align: center; margin-top: 4rem;">
-            <a class="btn-primary" href="servicos.html">
-                <span>Ver Todos os Serviços</span>
-                <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
-            </a>
+
+            <div class="service-card reveal reveal-delay-1">
+                <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">CORTE</h3>
+                <p class="service-desc">Um corte clássico ou moderno, executado com precisão e estilo.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 50</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <iconify-icon icon="solar:scissors-square-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">CORTE + SOBRANCELHA</h3>
+                <p class="service-desc">Visual completo com alinhamento perfeito dos fios e simetria.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 65</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <iconify-icon icon="solar:droplet-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">HIDRATAÇÃO</h3>
+                <p class="service-desc">Reposição de nutrientes e hidratação profunda para os fios.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 45</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-0">
+                <iconify-icon icon="solar:face-scan-square-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">LIMPEZA DE PELE</h3>
+                <p class="service-desc">Cuidado facial completo com produtos premium para renovar a pele.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 50</span>
+                    <span class="service-duration">60 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <iconify-icon icon="solar:sun-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">LUZES</h3>
+                <p class="service-desc">Iluminação dos fios com técnica profissional de descoloração.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 180</span>
+                    <span class="service-duration">180 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <iconify-icon icon="solar:magic-stick-3-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">PENTEADO</h3>
+                <p class="service-desc">Finalização perfeita e estruturada para qualquer ocasião.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 35</span>
+                    <span class="service-duration">15 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">PEZINHO</h3>
+                <p class="service-desc">Acabamento rigoroso no contorno do cabelo e nuca.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 25</span>
+                    <span class="service-duration">15 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-0">
+                <iconify-icon icon="solar:pallete-2-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">PIGMENTAÇÃO</h3>
+                <p class="service-desc">Cobertura de falhas e realce do volume da barba ou cabelo.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 35</span>
+                    <span class="service-duration">30 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <iconify-icon icon="solar:star-fall-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">PLATINADO</h3>
+                <p class="service-desc">Descoloração global profissional para o platinado perfeito.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 200</span>
+                    <span class="service-duration">180 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <iconify-icon icon="solar:waterdrops-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">PROGRESSIVA</h3>
+                <p class="service-desc">Alisamento e redução de volume duradouro dos fios.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 90</span>
+                    <span class="service-duration">120 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">RASPAGEM</h3>
+                <p class="service-desc">Corte uniforme completo executado na máquina.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 30</span>
+                    <span class="service-duration">30 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-0">
+                <iconify-icon icon="solar:scissors-square-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">RASPAGEM + BARBA</h3>
+                <p class="service-desc">Raspagem na máquina combinada ao alinhamento da barba.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 80</span>
+                    <span class="service-duration">45 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <iconify-icon icon="solar:magic-stick-3-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">RELAXAMENTO</h3>
+                <p class="service-desc">Redução de volume preservando o aspecto natural do cabelo.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 45</span>
+                    <span class="service-duration">60 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <iconify-icon icon="solar:magic-stick-3-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">SELAGEM</h3>
+                <p class="service-desc">Tratamento térmico intensivo para redução absoluta de frizz.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 85</span>
+                    <span class="service-duration">60 min</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <iconify-icon icon="solar:scissors-bold" class="service-icon"></iconify-icon>
+                <h3 class="service-name">SOBRANCELHA</h3>
+                <p class="service-desc">Limpeza, design e alinhamento milimétrico da sobrancelha.</p>
+                <div class="service-price-row">
+                    <span class="service-price">R$ 15</span>
+                    <span class="service-duration">15 min</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="gallery-header">
-            <div class="section-tag reveal" style="justify-content: center;">
-                <span class="section-tag-line"></span>
-                <span class="section-tag-text">Nosso Trabalho</span>
-                <span class="section-tag-line"></span>
-            </div>
-            <h2 class="section-title reveal reveal-delay-1">A <span class="italic">Arte</span> EM DETALHES</h2>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal"><img src="barbershop-landing-51.aura.build/assets/photo-1622286342621-4bd786c244_49252f554553.avif" alt="Corte"><div class="gallery-overlay"><span class="gallery-overlay-text">FADE PRECISO</span></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="barbershop-landing-51.aura.build/assets/photo-1605497788044-5a32c70784_266f9d369e98.avif" alt="Barba"><div class="gallery-overlay"><span class="gallery-overlay-text">ARTE NA BARBA</span></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="barbershop-landing-51.aura.build/assets/photo-1570172619644-dfd03ed5d8_53294f066c06.avif" alt="Toalha"><div class="gallery-overlay"><span class="gallery-overlay-text">RITUAL</span></div></div>
-            <div class="gallery-item reveal reveal-delay-1"><img src="barbershop-landing-51.aura.build/assets/photo-1633681926022-84c23e8cb2_d17fc64bbeff.avif" alt="Espaço"><div class="gallery-overlay"><span class="gallery-overlay-text">A EXPERIÊNCIA</span></div></div>
-            <div class="gallery-item reveal reveal-delay-2"><img src="barbershop-landing-51.aura.build/assets/photo-1493256338651-d82f7acb2b_8c40485c6ec9.avif" alt="Detalhes"><div class="gallery-overlay"><span class="gallery-overlay-text">TOQUES FINAIS</span></div></div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="team-header">
-            <div>
-                <div class="section-tag reveal">
-                    <span class="section-tag-line"></span>
-                    <span class="section-tag-text">A Equipe</span>
-                </div>
-                <h2 class="section-title reveal reveal-delay-1">CONHEÇA NOSSOS<br><span class="italic">Mestres</span></h2>
-            </div>
-        </div>
-        <div class="team-grid">
-            <div class="team-card reveal">
-                <div class="team-card-img"><img src="barbershop-landing-51.aura.build/assets/photo-1557862921-37829c790f19_09279be69e29.jpg" alt="James"></div>
-                <div class="team-card-info">
-                    <div><div class="team-card-name">JAMES RIVERA</div><div class="team-card-role">Fundador & Head Barber</div></div>
-                    <div class="team-card-socials"><a href="#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a></div>
-                </div>
-            </div>
-            <div class="team-card reveal reveal-delay-1">
-                <div class="team-card-img"><img src="barbershop-landing-51.aura.build/assets/photo-1597116648852-75764ecaf6_76921d88f400.jpg" alt="Marcus"></div>
-                <div class="team-card-info">
-                    <div><div class="team-card-name">MARCUS CHEN</div><div class="team-card-role">Senior Stylist</div></div>
-                    <div class="team-card-socials"><a href="#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a></div>
-                </div>
-            </div>
-            <div class="team-card reveal reveal-delay-2">
-                <div class="team-card-img"><img src="barbershop-landing-51.aura.build/assets/photo-1600180758890-6b94519a8b_04e812884c97.jpg" alt="David"></div>
-                <div class="team-card-info">
-                    <div><div class="team-card-name">DAVID OKAFOR</div><div class="team-card-role">Beard Specialist</div></div>
-                    <div class="team-card-socials"><a href="#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="testimonial-bg-text">AVALIAÇÕES</div>
-        <div class="testimonials-header">
-            <div class="section-tag reveal" style="justify-content: center;">
-                <span class="section-tag-line"></span>
-                <span class="section-tag-text">Depoimentos</span>
-                <span class="section-tag-line"></span>
-            </div>
-            <h2 class="section-title reveal reveal-delay-1">O QUE DIZEM<br>NOSSOS <span class="italic">Clientes</span></h2>
-        </div>
-        <div class="testimonial-slider">
-            <div class="testimonial-item active">
-                <div class="testimonial-stars">
-                    <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
-                </div>
-                <p class="testimonial-quote">"Não é apenas uma barbearia, é uma experiência. Desde o momento em que você entra, sente a atenção aos detalhes. James e sua equipe são verdadeiros artistas."</p>
-                <div class="testimonial-author-name">MICHAEL THORNTON</div>
-                <div class="testimonial-author-title">Cliente desde 2019</div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-stars">
-                    <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
-                </div>
-                <p class="testimonial-quote">"O pacote Real vale cada centavo. Barba com toalha quente, o degradê perfeito e uma massagem craniana que derrete o estresse. A melhor barbearia da cidade."</p>
-                <div class="testimonial-author-name">ROBERT CASTELLANO</div>
-                <div class="testimonial-author-title">Cliente desde 2020</div>
-            </div>
-        </div>
-        <div class="testimonial-nav">
-            <button class="testimonial-dot active" data-index="0"></button>
-            <button class="testimonial-dot" data-index="1"></button>
-        </div>
-    </section>
-
-    <!-- Booking -->
-    <section class="booking" id="booking">
-        <div class="booking-inner">
-            <div class="booking-image reveal">
-                <img src="barbershop-landing-51.aura.build/assets/photo-1633681926022-84c23e8cb2_e6bc846c0450.avif" alt="Cadeira">
-            </div>
-            <div class="booking-form-wrapper">
-                <div class="section-tag reveal">
-                    <span class="section-tag-line"></span>
-                    <span class="section-tag-text">Agende seu Horário</span>
-                </div>
-                <h2 class="section-title reveal reveal-delay-1">RESERVE SUA <span class="italic accent-red">Cadeira</span></h2>
-                <form class="booking-form reveal reveal-delay-2" onsubmit="event.preventDefault();">
-                    <div class="form-row">
-                        <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
-                        <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Serviço</label>
-                        <select>
-                            <option value="">Escolha um serviço...</option>
-                            <option value="signature">Corte Assinatura -- R$ 65</option>
-                            <option value="shave">Barba Toalha Quente -- R$ 55</option>
-                            <option value="royal">O Pacote Real -- R$ 130</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group"><label>Data</label><input type="date"></div>
-                        <div class="form-group"><label>Horário</label><input type="time"></div>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <span>Confirmar Agendamento</span>
-                        <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instagram -->
-    <section class="instagram">
-        <div class="instagram-header">
-            <div class="section-tag reveal" style="justify-content: center;">
-                <span class="section-tag-line"></span>
-                <span class="section-tag-text">Siga-nos</span>
-                <span class="section-tag-line"></span>
-            </div>
-            <h2 class="section-title reveal reveal-delay-1">NO <span class="italic">Instagram</span></h2>
-            <a class="instagram-handle reveal reveal-delay-2" href="#">
-                <iconify-icon icon="solar:camera-bold"></iconify-icon> @bladeandco
-            </a>
-        </div>
-        <div class="instagram-grid">
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1621605815971-fbc98d6650_df200a8ce972.jpg" alt="Insta"></div>
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1622286342621-4bd786c244_af49aaaf1826.jpg" alt="Insta"></div>
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1599351431202-1e0f013789_12f22dc1e8ca.jpg" alt="Insta"></div>
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1503951914875-452162b0f3_ad68379d68f9.jpg" alt="Insta"></div>
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1605497788044-5a32c70784_bf2592badfe2.jpg" alt="Insta"></div>
-            <div class="instagram-item"><img src="barbershop-landing-51.aura.build/assets/photo-1493256338651-d82f7acb2b_f48db52b0712.jpg" alt="Insta"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div>
@@ -735,26 +639,26 @@
                 </div>
                 <p class="footer-brand-desc">Onde a tradição encontra a arte moderna. Experiências premium de grooming para cavalheiros desde 2018.</p>
                 <div class="footer-socials">
-                    <a href="#"><iconify-icon icon="solar:camera-bold"></iconify-icon></a>
-                    <a href="#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a>
-                    <a href="#"><iconify-icon icon="solar:share-bold"></iconify-icon></a>
+                    <a href="index.html#"><iconify-icon icon="solar:camera-bold"></iconify-icon></a>
+                    <a href="index.html#"><iconify-icon icon="solar:chat-round-dots-bold"></iconify-icon></a>
+                    <a href="index.html#"><iconify-icon icon="solar:share-bold"></iconify-icon></a>
                 </div>
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">LINKS RÁPIDOS</div>
                 <ul>
-                    <li><a href="#about">História</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#gallery">Galeria</a></li>
-                    <li><a href="#team">Barbeiros</a></li>
+                    <li><a href="index.html#about">História</a></li>
+                    <li><a href="index.html#services">Serviços</a></li>
+                    <li><a href="index.html#gallery">Galeria</a></li>
+                    <li><a href="index.html#team">Barbeiros</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <div class="footer-col-title">SERVIÇOS</div>
                 <ul>
-                    <li><a href="#services">Corte Assinatura</a></li>
-                    <li><a href="#services">Barba Toalha Quente</a></li>
-                    <li><a href="#services">O Pacote Real</a></li>
+                    <li><a href="index.html#services">Corte Assinatura</a></li>
+                    <li><a href="index.html#services">Barba Toalha Quente</a></li>
+                    <li><a href="index.html#services">O Pacote Real</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -767,13 +671,11 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Todos os direitos reservados.</p>
             <div class="footer-bottom-links">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
+                <a href="index.html#">Política de Privacidade</a>
+                <a href="index.html#">Termos de Uso</a>
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
     <script>
         // Nav Scroll
         const nav = document.getElementById('nav');
