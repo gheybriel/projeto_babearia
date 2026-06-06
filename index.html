@@ -108,8 +108,8 @@
         .btn-outline:hover iconify-icon { transform: translateX(4px); }
 
         /* ========== NAVIGATION ========== */
-        .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s var(--ease-out-quart); }
-        .nav.scrolled { padding: 1rem 3rem; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s var(--ease-out-quart); background: rgba(8, 8, 8, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .nav.scrolled { padding: 1rem 3rem; background: rgba(8, 8, 8, 0.98); }
         
         .nav-group { display: flex; align-items: center; gap: 2.5rem; }
         .right-group { margin-left: auto; }
@@ -118,7 +118,7 @@
         .nav-logo img { width: 70px; height: auto; object-fit: contain; }
         
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-        .nav-links a { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); transition: color 0.3s ease; position: relative; }
+        .nav-links a { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); font-weight: 500; transition: color 0.3s ease; position: relative; }
         .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--white); transition: width 0.3s var(--ease-out-expo); }
         .nav-links a:hover { color: var(--white); }
         .nav-links a:hover::after { width: 100%; }
@@ -138,23 +138,23 @@
         .mobile-nav a:hover { color: var(--gold); }
 
         /* ========== HERO SECTION ========== */
-        .hero { height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative; overflow: hidden; }
+        .hero { height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative; overflow: hidden; background: var(--black); }
         .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 0 5rem; position: relative; z-index: 2; height: 100%; }
         .hero-tag { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s var(--ease-out-expo) 0.8s forwards; margin-bottom: 1rem; }
         .hero-title { font-family: var(--display); font-size: clamp(3rem, 6vw, 6.5rem); line-height: 0.95; letter-spacing: 0.04em; color: var(--white); margin-bottom: 1.5rem; }
-        .hero-title span { display: block; opacity: 0; transform: translateY(60px); }
-        .hero-title span:nth-child(1) { animation: fadeUp 1s var(--ease-out-expo) 1s forwards; }
-        .hero-title span:nth-child(2) { animation: fadeUp 1s var(--ease-out-expo) 1.15s forwards; }
-        .hero-title span:nth-child(3) { animation: fadeUp 1s var(--ease-out-expo) 1.3s forwards; }
+        .hero-title > * { display: block; opacity: 0; transform: translateY(60px); }
+        .hero-title > *:nth-child(1) { animation: fadeUp 1s var(--ease-out-expo) 1s forwards; }
+        .hero-title > *:nth-child(2) { animation: fadeUp 1s var(--ease-out-expo) 1.15s forwards; }
+        .hero-title > *:nth-child(3) { animation: fadeUp 1s var(--ease-out-expo) 1.3s forwards; }
         .hero-title .title-stroke { -webkit-text-stroke: 1px var(--gray); color: transparent; }
-        .hero-title .title-logo-style { font-family: var(--display); color: var(--red); font-size: 1em; letter-spacing: 0.05em; -webkit-text-stroke: 0; }
+        .hero-title .title-logo-style { height: 1em; width: auto; object-fit: contain; margin-top: 0.2rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
         
         .hero-desc { font-size: 0.95rem; line-height: 1.6; color: var(--gray-light); max-width: 480px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 1.5s forwards; }
         .hero-actions { display: flex; align-items: center; gap: 2rem; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 1.7s forwards; }
         
-        .hero-image { position: relative; overflow: hidden; height: 100vh; margin-left: -5rem; -webkit-mask-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M15 0 L100 0 L100 100 L5 100 Q 20 85, 2 70 T 15 40 T 2 10 T 15 0 Z" fill="black"/></svg>'); -webkit-mask-size: 100% 100%; mask-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M15 0 L100 0 L100 100 L5 100 Q 20 85, 2 70 T 15 40 T 2 10 T 15 0 Z" fill="black"/></svg>'); mask-size: 100% 100%; }
-        .hero-image img { width: 100%; height: 100%; object-fit: cover; scale: 1.1; animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; filter: grayscale(20%); }
-        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 30%), linear-gradient(to top, var(--black) 0%, transparent 20%); pointer-events: none; }
+        .hero-image { position: relative; overflow: hidden; height: 100vh; margin-left: -2px; }
+        .hero-image video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0; }
+        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 40%), linear-gradient(to top, var(--black) 0%, transparent 20%); pointer-events: none; }
         @keyframes heroImgReveal { from { opacity: 0; scale: 1.2; } to { opacity: 1; scale: 1.05; } }
 
         /* ========== MARQUEE ========== */
@@ -427,7 +427,7 @@
             <h1 class="hero-title">
                 <span>SUA MELHOR</span>
                 <span>VERSÃO</span>
-                <span class="title-logo-style">COMEÇA AQUI</span>
+                <img src="assets/images/Group_7.png" alt="Começa Aqui" class="title-logo-style">
             </h1>
             <p class="hero-desc" style="margin-bottom: 2rem;">
                 A Base Barber Shop transforma estilo em identidade. Trabalhamos visagismo, simetria e textura para criar um visual que realmente representa quem você é.<br><br>Aqui, cada corte tem propósito. Cada detalhe tem intenção.<br><br>Bem-vindo à experiência Base.
@@ -440,7 +440,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0;">
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); animation: heroImgReveal 1.8s var(--ease-out-expo) 0.5s forwards; opacity: 0;">
                 <source src="assets/images/@olucasfreestyle_já_atualizou_a_régua,_e_você_.mp4" type="video/mp4">
             </video>
         </div>
